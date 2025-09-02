@@ -17,17 +17,14 @@ on:
         - info
         - warning
         - debug
-  
-  print_tags:
-    descriptiong: 'print tag'
 
   jobs:
-  test_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run tests
-        run: |
-          echo "Running tests with input: ${{ inputs.example_input }}"
+    test_job:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Run tests
+          run: |
+            echo "Running tests with input: ${{ inputs.example_input }}"
 
     job_1: 
       runs-on: ubuntu-latest
