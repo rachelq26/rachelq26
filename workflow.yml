@@ -1,0 +1,22 @@
+# Manual events
+name: test
+on: 
+  workflow_dispatch:
+  
+     inputs:
+      homedrive:
+        description: 'This is a test action'
+        required: true
+        default: '/home'
+      loglevel:
+        description: 'This is the log file'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+  
+  print_tags:
+    descriptiong: 'print tag'
