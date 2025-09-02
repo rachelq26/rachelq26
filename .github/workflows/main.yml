@@ -25,13 +25,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         run: |
-         echo "Running tests with input: ${{ inputs.example_input }}"
+          echo "This is job 1"
 
   job_2:
     runs-on: ubuntu-latest
     needs: job_1
     steps:
         run: | 
-          echo "Running tests with input: ${{ inputs.example_input }}"
+          echo "This is job 2, which ran after job 1"
         
 
