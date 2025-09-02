@@ -1,41 +1,35 @@
 # Manual events
-name: test
-on: 
+name: Test
+on:
   workflow_dispatch:
-  
-     inputs:
-      homedrive:
-        description: 'This is a test action'
+    inputs:
+      example_input:
+        description: 'An example input'
         required: true
-        default: '/home'
-      loglevel:
-        description: 'This is the log file'
-        required: true
-        default: 'warning'
-        type: choice
-        options:
-        - info
-        - warning
-        - debug
+        default: 'Hello, World!'
+      enable_feature:
+        description: 'Enable feature'
+        required: false
+        type: boolean
+        default: false
 
-  jobs:
-    test_job:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Run tests
-          run: |
-            echo "Running tests with input: ${{ inputs.example_input }}"
-
-    job_1: 
-      runs-on: ubuntu-latest
-      steps: |
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        run: |
           echo "Running tests with input: ${{ inputs.example_input }}"
 
+  job_1: 
+    runs-on: ubuntu-latest
+    steps: |
+        echo "Running tests with input: ${{ inputs.example_input }}"
 
-    job_2:
-      runs-on: ubuntu-latest
-      needs: job_1
-      steps: |
-          echo "Running tests with input: ${{ inputs.example_input }}"
+  job_2:
+    runs-on: ubuntu-latest
+    needs: job_1
+    steps: |
+        echo "Running tests with input: ${{ inputs.example_input }}"
         
 
